@@ -28,121 +28,102 @@ HTML_TEMPLATE = """
         <!-- Header -->
         <div class="bg-gradient-to-r from-indigo-600 to-violet-700 py-8 px-8 text-white">
             <h1 class="text-3xl font-extrabold tracking-tight">Student Performance Predictor</h1>
-            <p class="mt-2 text-indigo-100 text-sm">Enter student details below to generate predictions using the AdaBoost model.</p>
+            <p class="mt-2 text-indigo-100 text-sm">Enter student details below to generate predictions using your deployed AdaBoost model.</p>
         </div>
 
         <!-- Form -->
         <form method="POST" class="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            <!-- Age -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Age</label>
                 <input type="number" name="age" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 18">
             </div>
 
-            <!-- Gender -->
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Gender (Encoded Code)</label>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Gender (Encoded)</label>
                 <input type="number" name="gender" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 0 or 1">
             </div>
 
-            <!-- State -->
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">State (Encoded Code)</label>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">State (Encoded)</label>
                 <input type="number" name="state" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 5">
             </div>
 
-            <!-- Family Income -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Family Income ($)</label>
                 <input type="number" step="any" name="family_income" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 75000">
             </div>
 
-            <!-- High School GPA -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">High School GPA</label>
                 <input type="number" step="0.01" name="high_school_gpa" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 3.8">
             </div>
 
-            <!-- SAT Score -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">SAT Score</label>
                 <input type="number" name="sat_score" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 1350">
             </div>
 
-            <!-- ACT Score -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">ACT Score</label>
                 <input type="number" name="act_score" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 28">
             </div>
 
-            <!-- Attendance Rate -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Attendance Rate (0.0 - 1.0)</label>
                 <input type="number" step="0.01" name="attendance_rate" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 0.95">
             </div>
 
-            <!-- AP Courses -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">AP Courses Count</label>
                 <input type="number" name="ap_courses" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 4">
             </div>
 
-            <!-- Extracurricular Count -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Extracurricular Count</label>
                 <input type="number" name="extracurricular_count" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 3">
             </div>
 
-            <!-- Volunteer Hours -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Volunteer Hours</label>
                 <input type="number" name="volunteer_hours" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 50">
             </div>
 
-            <!-- Leadership Positions -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Leadership Positions</label>
                 <input type="number" name="leadership_positions" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 2">
             </div>
 
-            <!-- Coding Projects -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Coding Projects</label>
                 <input type="number" name="coding_projects" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 5">
             </div>
 
-            <!-- Social Media Hours -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Social Media Hours / Day</label>
                 <input type="number" step="0.1" name="social_media_hours" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 2.5">
             </div>
 
-            <!-- Online Certifications -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Online Certifications</label>
                 <input type="number" name="online_certifications" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 3">
             </div>
 
-            <!-- Essay Score -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Essay Score (0 - 100)</label>
                 <input type="number" step="0.1" name="essay_score" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 88.5">
             </div>
 
-            <!-- Recommendation Score -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Recommendation Score (0 - 100)</label>
                 <input type="number" step="0.1" name="recommendation_score" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 90.0">
             </div>
 
-            <!-- Interview Score -->
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Interview Score (0 - 100)</label>
                 <input type="number" step="0.1" name="interview_score" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="e.g., 85.0">
             </div>
 
-            <!-- Submit Button -->
             <div class="md:col-span-2 mt-4">
                 <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 shadow-lg transform hover:-translate-y-0.5">
                     Run Prediction
@@ -150,10 +131,9 @@ HTML_TEMPLATE = """
             </div>
         </form>
 
-        <!-- Prediction Result Display Section -->
         {% if prediction is not none %}
         <div class="bg-indigo-50 border-t border-indigo-100 p-6 text-center">
-            <h2 class="text-lg font-semibold text-gray-600 uppercase tracking-wider">Result</h2>
+            <h2 class="text-lg font-semibold text-gray-600 uppercase tracking-wider">Prediction Result</h2>
             <p class="mt-2 text-3xl font-extrabold text-indigo-600">{{ prediction }}</p>
         </div>
         {% endif %}
@@ -167,7 +147,7 @@ def home():
     prediction = None
     if request.method == 'POST':
         try:
-            # Map input fields in exact feature order retrieved from model metadata
+            # Features mapped precisely to the model's required input schema[cite: 2]
             features = [
                 float(request.form['age']),
                 float(request.form['gender']),
